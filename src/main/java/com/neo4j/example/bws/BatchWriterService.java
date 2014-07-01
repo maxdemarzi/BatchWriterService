@@ -41,7 +41,8 @@ public class BatchWriterService extends AbstractScheduledService {
         long startTime = System.nanoTime();
         long transactionTime = System.nanoTime();
         Collection<HashMap<String, Object>> writes = new ArrayList<>();
-        queue.drainTo(writes, 5_000);
+
+        queue.drainTo(writes);
 
         if(!writes.isEmpty()){
             int i = 0;
