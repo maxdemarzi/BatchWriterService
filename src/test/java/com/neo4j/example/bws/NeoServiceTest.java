@@ -38,9 +38,15 @@ public class NeoServiceTest {
     }
 
     @Test
-    public void shouldRespondToHelloWorld() {
-        assertEquals("Hello World!", service.helloWorld());
+    public void shouldRespondToHelloWorld() throws IOException  {
+        Response response = service.helloWorld();
+        HashMap actual = objectMapper.readValue((String) response.getEntity(), HashMap.class);
+        assertEquals(expected, actual);
     }
+
+    private static final HashMap expected = new HashMap<String, Object>() {{
+        put("hello", "world");
+    }};
 
 
     @Test

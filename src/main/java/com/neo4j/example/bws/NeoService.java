@@ -21,8 +21,6 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.*;
 
-import static java.lang.Thread.sleep;
-
 @javax.ws.rs.Path("/service")
 public class NeoService {
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -41,8 +39,11 @@ public class NeoService {
 
     @GET
     @javax.ws.rs.Path("/helloworld")
-    public String helloWorld() {
-        return "Hello World!";
+    public Response helloWorld() throws IOException {
+        Map<String, String> results = new HashMap<String,String>(){{
+            put("hello","world");
+        }};
+        return Response.ok().entity(objectMapper.writeValueAsString(results)).build();
     }
 
     @GET

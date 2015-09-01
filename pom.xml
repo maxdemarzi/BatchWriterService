@@ -10,7 +10,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <neo4j.version>2.0.3</neo4j.version>
+        <neo4j.version>2.2.5</neo4j.version>
         <junit.version>4.11</junit.version>
         <jersey.version>1.18.1</jersey.version>
         <joda.version>2.3</joda.version>
@@ -44,6 +44,13 @@
             <artifactId>neo4j-server</artifactId>
             <version>${neo4j.version}</version>
             <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-io</artifactId>
+            <type>test-jar</type>
+            <version>${neo4j.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
